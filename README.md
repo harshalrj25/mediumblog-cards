@@ -1,5 +1,8 @@
 # Mediumblog-cards  :loudspeaker:
 Fetch your medium blog information and display it in your github profile.
+```
+![Harshal Jadhav Medium](https://mediumblog-cards.vercel.app/getMediumBlogs?username=harshalrj25&type=horizontal)
+```
 ![Harshal Jadhav Medium](https://mediumblog-cards.vercel.app/getMediumBlogs?username=harshalrj25&type=horizontal)
 ## Example :books:
 Simply paste the markdown in your github readme
