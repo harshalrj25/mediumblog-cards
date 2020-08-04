@@ -30,6 +30,11 @@ const asyncForEach = async (array, callback) => {
 
 app.get('/getMediumBlogs', async (request, response) => {
   try {
+    if (!request.query.username) {
+      response.write(JSON.stringify({error: 'your medium username is require in the query string'}));
+      response.end();
+      return;
+    }
     const username = request.query.username;
     let limit = 5;
     let type = 'vertical'
