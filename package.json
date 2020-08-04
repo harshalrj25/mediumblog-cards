@@ -1,8 +1,8 @@
 {
-  "name": "pullmediumblogs",
+  "name": "mediumblog-cards",
   "version": "1.0.0",
-  "description": "Pull medium blogs",
-  "main": "index.js",
+  "description": "mediumblog-cards",
+  "main": "app.js",
   "scripts": {
     "start": "node ./app.js",
     "dev": "nodemon ./app.js",
@@ -12,8 +12,6 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.2",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "rss-parser": "^3.9.0"
+    "express": "^4.17.1"
   }
 }
