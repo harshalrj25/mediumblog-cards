@@ -4,7 +4,7 @@ Fetch your medium blog information and display it in your github profile.
 ## Example :books:
 Simply paste the markdown in your github readme
 ```
-[![Harshal Jadhav Medium](https://mediumblog-cards.vercel.app/getMediumBlogs?username=harshalrj25)](https://medium.com/@harshalrj25)
+![Harshal Jadhav Medium](https://mediumblog-cards.vercel.app/getMediumBlogs?username=harshalrj25)
 ```
 Or open the url https://mediumblog-cards.vercel.app/getMediumBlogs?username=harshalrj25 in your browser.
 
@@ -16,10 +16,9 @@ Use the `&type=` (horizontal or vertical) for alignment.<br>
 
 ## Vertical type
 ```
-[![Harshal Jadhav Medium](https://mediumblog-cards.vercel.app/getMediumBlogs?username=harshalrj25)](https://medium.com/@harshalrj25)
+![Harshal Jadhav Medium](https://mediumblog-cards.vercel.app/getMediumBlogs?username=harshalrj25)]
 ```
-[![Harshal Jadhav Medium](https://mediumblog-cards.vercel.app/getMediumBlogs?username=harshalrj25)](https://medium.com/@harshalrj25)
-
+![Harshal Jadhav Medium](https://mediumblog-cards.vercel.app/getMediumBlogs?username=harshalrj25)]
 
 ## Deploy your own
 Deploy the code to your vercel account.
