@@ -10,7 +10,7 @@ const getBase64 = async (url) => {
 
 const blogCard = async (data) => {
   const blogImage = await getBase64(data.thumbnail);
-  const mediumLogo = await getBase64("https://raw.githubusercontent.com/harshalrj25/MasterAssetsRepo/master/mediumLong.png");
+  //const mediumLogo = await getBase64("https://raw.githubusercontent.com/harshalrj25/MasterAssetsRepo/master/mediumLong.png");
   const blogDate = new Date(data.pubDate).toLocaleString('default', { year: 'numeric', month: 'short', day: 'numeric' })
   const blogLink = data.link;
   return `
@@ -44,7 +44,6 @@ const blogCard = async (data) => {
    <text transform="translate(100,0)" fill="white" font-size="12">
     <textPath xlink:href="#blogDate">${blogDate}</textPath>
    </text>
-   <image xlink:href="data:image/png;base64,${mediumLogo}"  x="280" y="70" height="40px" width="60px" />
    </a>
   </svg>
     `;
