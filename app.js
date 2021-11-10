@@ -29,11 +29,11 @@ const asyncForEach = async (array, callback) => {
 };
 
 app.get('/', async (request, response) => {
-  try{
+  try {
     response.status(200).send(`<h2>Use the URL in following format</h2>
     <br/> <a href="https://mediumblog-cards.vercel.app/getMediumBlogs?username=harshalrj25">https://mediumblog-cards.vercel.app/getMediumBlogs?username=harshalrj25 </a><br/>
     <h3>Replace query parameter with your github username</h3>`)
-  }catch (error){
+  } catch (error) {
     console.log(error);
     response.send('Error' + error);
   }
@@ -42,7 +42,7 @@ app.get('/', async (request, response) => {
 app.get('/getMediumBlogs', async (request, response) => {
   try {
     if (!request.query.username) {
-      response.write(JSON.stringify({error: 'your medium username is require in the query string'}));
+      response.write(JSON.stringify({ error: 'your medium username is require in the query string' }));
       response.end();
       return;
     }
@@ -90,4 +90,4 @@ var port = process.env.PORT || 3000;
 
 app.listen(port, function () {
   console.log('Server listening' + port);
-}); 
+});

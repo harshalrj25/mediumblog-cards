@@ -14,7 +14,15 @@ const blogCard = async (data) => {
   const blogDate = new Date(data.pubDate).toLocaleString('default', { year: 'numeric', month: 'short', day: 'numeric' })
   const blogLink = data.link;
   return `
-    <svg height="105px" width="350px">
+    <svg class="shadow" height="105px" width="345px">
+    <defs>
+    <style type="text/css"><![CDATA[
+      .shadow {
+        -webkit-filter: drop-shadow(3px 3px 6px rgba(0, 0, 0, 0.9));
+        filter: drop-shadow(3px 3px 6px rgba(0, 0, 0, 0.9));
+      }     
+    ]]></style>
+  </defs>
     <defs>
     <!-- define lines for text lies on -->
     <path id="blogName" d="M0,20 H235 M0,35 H235 M0,50 H240 M0,65 H235">     </path>
@@ -23,8 +31,8 @@ const blogCard = async (data) => {
       <path id="blogDate" d="M0,95 H230 ">     
       </path>
       <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:rgb(22,34,42);stop-opacity:1" />
-      <stop offset="100%" style="stop-color:rgb(58,96,115);stop-opacity:1" />
+      <stop offset="0%" style="stop-color:rgb(206,108,9);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgb(248,212,176);stop-opacity:1" />
     </linearGradient>
     <linearGradient id="grad2" x1="0%" y1="0%" x2="0%" y2="100%">
     <stop offset="0%" style="stop-color:rgb(0,0,0);stop-opacity:1" />
@@ -38,10 +46,10 @@ const blogCard = async (data) => {
    </text>
    <rect x="5" y="10" height="85px" width="90px" style="fill:url(#grad2);stroke-width:0.5;stroke:rgb(255,255,255)"></rect>
        <image xlink:href="data:image/png;base64,${blogImage}"  x="5" y="10" height="85px" width="90px" />
-   <text transform="translate(100,0)" fill="white" font-size="13">
+   <text transform="translate(100,0)" fill="dark gray" font-size="13">
     <textPath xlink:href="#blogAuthor">${data.author}</textPath>
    </text>
-   <text transform="translate(100,0)" fill="white" font-size="12">
+   <text transform="translate(100,0)" fill="dark gray" font-size="12">
     <textPath xlink:href="#blogDate">${blogDate}</textPath>
    </text>
    </a>
