@@ -8,10 +8,8 @@ const getBase64 = async (url) => {
     .then(response => Buffer.from(response.data, 'binary').toString('base64'))
 }
 
-const blogCard = async (data) => {
+const blogCard = async (data, userIcon, mediumIcon) => {
   const blogImage = await getBase64(data.thumbnail);
-  const user = await getBase64("https://github.com/harshalrj25/MasterAssetsRepo/blob/master/man.png?raw=true");
-  const medium = await getBase64("https://github.com/harshalrj25/MasterAssetsRepo/blob/master/medium.png?raw=true");
   const blogDate = new Date(data.pubDate).toLocaleString('default', { year: 'numeric', month: 'short', day: 'numeric' })
   const blogLink = data.link;
   return `
@@ -48,11 +46,11 @@ const blogCard = async (data) => {
    </text>
    <rect x="5" y="10" height="85px" width="90px" style="fill:url(#grad2);stroke-width:0.5;stroke:rgb(255,255,255)"></rect>
        <image xlink:href="data:image/png;base64,${blogImage}"  x="5" y="10" height="85px" width="90px" />
-   <image x="95" y="70" href="data:image/png;base64,${user}" height="25" width="25"/>
+   <image x="95" y="70" href="data:image/png;base64,${userIcon}" height="25" width="25"/>
        <text transform="translate(100,0)" fill="dark gray" font-size="13">
     <textPath xlink:href="#blogAuthor">${data.author}</textPath>
    </text>
-   <image x="315" y="75" href="data:image/png;base64,${medium}" height="25" width="25"/>
+   <image x="315" y="75" href="data:image/png;base64,${mediumIcon}" height="25" width="25"/>
    <text transform="translate(100,0)" fill="dark gray" font-size="12">
     <textPath xlink:href="#blogDate">${blogDate}</textPath>
    </text>

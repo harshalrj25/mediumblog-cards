@@ -28,6 +28,14 @@ const asyncForEach = async (array, callback) => {
   }
 };
 
+const getBase64 = async (url) => {
+  return await axios
+    .get(url, {
+      responseType: 'arraybuffer'
+    })
+    .then(response => Buffer.from(response.data, 'binary').toString('base64'))
+}
+
 app.get('/', async (request, response) => {
   try {
     response.status(200).send(`<h2>Use the URL in following format</h2>
@@ -56,6 +64,8 @@ app.get('/getMediumBlogs', async (request, response) => {
       limit = request.query.limit;
     }
     const resultData = await getUserData(username);
+    const userIcon = await getBase64("https://github.com/harshalrj25/MasterAssetsRepo/blob/master/man.png?raw=true");
+    const mediumIcon = await getBase64("https://github.com/harshalrj25/MasterAssetsRepo/blob/master/medium.png?raw=true");
     let result = `<svg>`;
     if (type == 'horizontal') {
       result = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${resultData.length * 355}" version="1.2" height="130">`;
@@ -63,7 +73,7 @@ app.get('/getMediumBlogs', async (request, response) => {
         if (index >= limit) {
           return;
         }
-        const blogCardObj = await blogCard(blog);
+        const blogCardObj = await blogCard(blog, userIcon, mediumIcon);
         result += `<g transform="translate(${index * 355}, 0)">${blogCardObj}</g>`;
       });
     } else {
@@ -72,7 +82,7 @@ app.get('/getMediumBlogs', async (request, response) => {
         if (index >= limit) {
           return;
         }
-        const blogCardObj = await blogCard(blog);
+        const blogCardObj = await blogCard(blog, userIcon, mediumIcon);
         result += `<g transform="translate(0, ${index * 110})">${blogCardObj}</g>`;
       });
     }
