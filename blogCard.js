@@ -10,14 +10,16 @@ const getBase64 = async (url) => {
 
 const blogCard = async (data) => {
   const blogImage = await getBase64(data.thumbnail);
-  //const mediumLogo = await getBase64("https://raw.githubusercontent.com/harshalrj25/MasterAssetsRepo/master/mediumLong.png");
+  const user = await getBase64("https://github.com/harshalrj25/MasterAssetsRepo/blob/master/man.png?raw=true");
+  const medium = await getBase64("https://github.com/harshalrj25/MasterAssetsRepo/blob/master/medium.png?raw=true");
   const blogDate = new Date(data.pubDate).toLocaleString('default', { year: 'numeric', month: 'short', day: 'numeric' })
   const blogLink = data.link;
   return `
-    <svg class="shadow" height="105px" width="345px">
+    <svg x="10" y="10" class="shadow" height="105px" width="345px">
     <defs>
     <style type="text/css"><![CDATA[
       .shadow {
+        margin:2px;
         -webkit-filter: drop-shadow(3px 3px 6px rgba(0, 0, 0, 0.9));
         filter: drop-shadow(3px 3px 6px rgba(0, 0, 0, 0.9));
       }     
@@ -26,9 +28,9 @@ const blogCard = async (data) => {
     <defs>
     <!-- define lines for text lies on -->
     <path id="blogName" d="M0,20 H235 M0,35 H235 M0,50 H240 M0,65 H235">     </path>
-      <path id="blogAuthor" d="M0,80 H230 ">     
+      <path id="blogAuthor" d="M25,80 H230 ">     
       </path>
-      <path id="blogDate" d="M0,95 H230 ">     
+      <path id="blogDate" d="M25,95 H230 ">     
       </path>
       <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" style="stop-color:rgb(206,108,9);stop-opacity:1" />
@@ -41,14 +43,16 @@ const blogCard = async (data) => {
    </defs>
    <a href="${blogLink}" target="_blank">
    <rect x="0" y="0" width="100%" height="100%" style="fill:url(#grad1)"></rect>
-   <text transform="translate(100,0)" fill="white" font-size="13" font-family="Arial, Helvetica, sans-serif">
+   <text text-decoration="underline" transform="translate(100,0)" fill="white" font-size="13" font-family="Arial, Helvetica, sans-serif">
     <textPath xlink:href="#blogName">${data.title}</textPath>
    </text>
    <rect x="5" y="10" height="85px" width="90px" style="fill:url(#grad2);stroke-width:0.5;stroke:rgb(255,255,255)"></rect>
        <image xlink:href="data:image/png;base64,${blogImage}"  x="5" y="10" height="85px" width="90px" />
-   <text transform="translate(100,0)" fill="dark gray" font-size="13">
+   <image x="95" y="70" href="data:image/png;base64,${user}" height="25" width="25"/>
+       <text transform="translate(100,0)" fill="dark gray" font-size="13">
     <textPath xlink:href="#blogAuthor">${data.author}</textPath>
    </text>
+   <image x="315" y="75" href="data:image/png;base64,${medium}" height="25" width="25"/>
    <text transform="translate(100,0)" fill="dark gray" font-size="12">
     <textPath xlink:href="#blogDate">${blogDate}</textPath>
    </text>

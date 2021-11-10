@@ -58,7 +58,7 @@ app.get('/getMediumBlogs', async (request, response) => {
     const resultData = await getUserData(username);
     let result = `<svg>`;
     if (type == 'horizontal') {
-      result = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${resultData.length * 355}" version="1.2" height="105">`;
+      result = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${resultData.length * 355}" version="1.2" height="130">`;
       await asyncForEach(resultData, async (blog, index) => {
         if (index >= limit) {
           return;
@@ -67,7 +67,7 @@ app.get('/getMediumBlogs', async (request, response) => {
         result += `<g transform="translate(${index * 355}, 0)">${blogCardObj}</g>`;
       });
     } else {
-      result = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="350" version="1.2" height="${resultData.length * 110}">`;
+      result = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="370" version="1.2" height="${resultData.length * 130}">`;
       await asyncForEach(resultData, async (blog, index) => {
         if (index >= limit) {
           return;
