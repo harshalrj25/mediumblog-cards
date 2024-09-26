@@ -9,7 +9,10 @@ const getBase64 = async (url) => {
 }
 
 const blogCard = async (data, userIcon, mediumIcon) => {
-  const blogImage = await getBase64(data.thumbnail);
+let regex = /<img[^>]+src="([^">]+)"/i;
+let match = data.description.match(regex);
+let imageUrl = match ? match[1] : null;
+  const blogImage = await getBase64(imageUrl);
   const blogDate = new Date(data.pubDate).toLocaleString('default', { year: 'numeric', month: 'short', day: 'numeric' })
   const blogLink = data.link;
   return `
