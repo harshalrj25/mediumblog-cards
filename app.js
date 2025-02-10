@@ -50,7 +50,7 @@ app.get('/', async (request, response) => {
 app.get('/getMediumBlogs', async (request, response) => {
   try {
     if (!request.query.username) {
-      response.write(JSON.stringify({ error: 'your medium username is require in the query string' }));
+      response.write(JSON.stringify({ error: 'Your medium username is require in the query string' }));
       response.end();
       return;
     }
